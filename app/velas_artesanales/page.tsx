@@ -367,7 +367,6 @@ export default function VelasArtesanalesPage() {
         <div className="hero-glow hero-glow-two" />
         <div className="shell hero-inner">
           <div className="hero-copy">
-            <span className="hero-kicker">CURSO ONLINE · VELAS ARTESANALES COMO NEGOCIO CREATIVO</span>
             <h1>
               Aprende a crear <mark>velas artesanales</mark> desde cero, aunque no tengas experiencia
             </h1>
@@ -380,11 +379,7 @@ export default function VelasArtesanalesPage() {
               <span><Gift /> 9 bonos destacados</span>
             </div>
             <div className="hero-offer-row">
-              <div className="hero-price">
-                <small>ACCESO COMPLETO</small>
-                <strong>${config.price} USD</strong>
-              </div>
-              <CTA>QUIERO INSCRIBIRME POR ${config.price} USD</CTA>
+              <CTA>INSCRIPCIONES POR EL 50% DE DESCUENTO</CTA>
             </div>
             <p className="secure-copy"><ShieldCheck /> Compra procesada a través de Hotmart.</p>
           </div>
@@ -726,6 +721,7 @@ export default function VelasArtesanalesPage() {
             >
               <path
                 fill="currentColor"
+                transform="translate(2 0.5)"
                 d="M19.11 17.23c-.27-.14-1.58-.78-1.83-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.15-1.33-.79-.7-1.33-1.57-1.49-1.84-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.98 2.63 1.11 2.81c.14.18 1.92 2.93 4.65 4.11.65.28 1.15.45 1.55.57.65.21 1.24.18 1.71.11.52-.08 1.58-.65 1.8-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"
               />
               <path
