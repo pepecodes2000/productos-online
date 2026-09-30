@@ -378,10 +378,6 @@ export default function VelasArtesanalesPage() {
               <span><BookOpenCheck /> 15 módulos</span>
               <span><Gift /> 9 bonos destacados</span>
             </div>
-            <div className="hero-offer-row">
-              <CTA>INSCRIPCIONES POR EL 50% DE DESCUENTO</CTA>
-            </div>
-            <p className="secure-copy"><ShieldCheck /> Compra procesada a través de Hotmart.</p>
           </div>
           <div className="hero-media">
             <div className="hero-mockup">
