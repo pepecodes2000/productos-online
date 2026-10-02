@@ -240,8 +240,10 @@ export default function VelasArtesanalesPage() {
         <div className="hero-glow hero-glow-one" /><div className="hero-glow hero-glow-two" />
         <div className="shell hero-inner">
           <div className="hero-copy">
-            <span className="hero-kicker">VELAS ARTESANALES COMO NEGOCIO CREATIVO</span>
-            <h1>Empieza a crear <mark>Velas a tu Ritmo</mark> con una ruta clara y evita frustarte.</h1>
+            <h1>
+              Crea <mark>velas artesanales</mark> que te sientas orgullosa
+              de mostrar… y da tus primeros pasos para convertirlas en productos.
+            </h1>
             <p className="hero-lead">Sigue una ruta organizada para descubrir qué materiales usar y avanzar desde cero con proyectos prácticos hasta crear velas que te sientas orgullosa de mostrar y presentar como productos.</p>
             <div className="hero-badges" aria-label="Resumen del curso">
               <span><PlayCircle /> +135 clases grabadas</span><span><BookOpenCheck /> 15 módulos</span><span><Clock3 /> Acceso de por vida</span>
@@ -278,13 +280,13 @@ export default function VelasArtesanalesPage() {
 
       <section className="curriculum-section section" id="temario"><div className="shell curriculum-grid"><aside className="curriculum-heading"><span className="section-kicker">QUÉ INCLUYE</span><h2>Una formación que avanza contigo desde cero</h2><p>15 módulos y más de 135 clases grabadas: fundamentos, proyectos, técnicas complementarias y contenidos para el lado práctico del emprendimiento.</p><div className="curriculum-mini-card"><BookOpenCheck /><div><strong>Vista resumida primero</strong><span>Abre solo el módulo que quieras consultar.</span></div></div></aside><div className="module-list">{modules.map((module, index) => (<details key={module.number} open={index === 0}><summary><span className="module-number">{module.number}</span><span className="module-title">{module.title}</span><span className="module-plus">+</span></summary><ul>{module.topics.map((topic) => <li key={topic}>{topic}</li>)}</ul></details>))}</div></div></section>
 
-      <section className="testimonials-section section" id="testimonios"><div className="shell"><div className="section-intro centered light"><span className="section-kicker">PRUEBA SOCIAL</span><h2>Mira la experiencia de personas que ya han pasado por el programa</h2><p>Capturas de testimonios compartidos dentro del material del curso.</p></div><div className="testimonials-grid">{testimonials.map((src, index) => (<figure key={src} className="testimonial-card"><Image src={src} alt={`Testimonio de estudiante ${index + 1}`} fill sizes="(max-width: 680px) 88vw, (max-width: 1000px) 43vw, 30vw" /></figure>))}</div><div className="instructor-inline"><div className="instructor-inline-photo panel-image"><Image src={assets.instructor} alt="Andrea, instructora del programa" fill sizes="160px" /></div><div><span>¿CON QUIÉN APRENDERÁS?</span><h3>Conoce a Andrea</h3><p>Soy una emprendedora colombiana con más de 3 años de 
-experiencia en la creación, producción y venta de velas artesanales. He creado 
-este curso online, para compartir lo que esté lindo arte de las velas artesanales  
-me ha enseñado con el fin de que más y más personas aprendan y emprendan 
-sus propios negocios desde casa, te guiaré desde cero para que puedas crear 
-tus velas de forma fácil y divertida como todo un profesional  y así puedas 
-emprender desde casa como yo..</p></div></div></div></section>
+      <section className="testimonials-section section" id="testimonios"><div className="shell"><div className="section-intro centered light"><span className="section-kicker">PRUEBA SOCIAL</span><h2>Mira la experiencia de personas que ya han pasado por el programa</h2><p>Capturas de testimonios compartidos dentro del material del curso.</p></div><div className="testimonials-grid">{testimonials.map((src, index) => (<figure key={src} className="testimonial-card"><Image src={src} alt={`Testimonio de estudiante ${index + 1}`} fill sizes="(max-width: 680px) 88vw, (max-width: 1000px) 43vw, 30vw" /></figure>))}</div><div className="instructor-inline"><div className="instructor-inline-photo panel-image"><Image src={assets.instructor} alt="Andrea, instructora del programa" fill sizes="160px" /></div><div><span>¿CON QUIÉN APRENDERÁS?</span><h3>Conoce a Andrea</h3><p>Soy una emprendedora colombiana con más de 3 años de
+        experiencia en la creación, producción y venta de velas artesanales. He creado
+        este curso online, para compartir lo que esté lindo arte de las velas artesanales
+        me ha enseñado con el fin de que más y más personas aprendan y emprendan
+        sus propios negocios desde casa, te guiaré desde cero para que puedas crear
+        tus velas de forma fácil y divertida como todo un profesional  y así puedas
+        emprender desde casa como yo..</p></div></div></div></section>
 
       <section className="section first-offer-section" id="cta-inicial"><div className="shell"><div className="decision-card"><span className="section-kicker">TU PRIMER PASO</span><h2>Ya no necesitas seguir preguntándote por dónde empezar</h2><p>Si quieres aprender a crear velas siguiendo una ruta organizada y comenzar a desarrollar una habilidad que puedas transformar en tus propios productos, puedes dar el primer paso hoy.</p><div className="decision-price"><small>ACCESO COMPLETO AL PROGRAMA</small><strong>${config.price} USD</strong></div><CTA>QUIERO EMPEZAR A CREAR MIS VELAS POR ${config.price} USD</CTA><div className="trust-line"><ShieldCheck /> Acceso digital · Pago gestionado por Hotmart · Garantía informada de 7 días</div></div></div></section>
 
