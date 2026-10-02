@@ -20,7 +20,7 @@ const config = {
   price: 35,
   checkoutUrl:
     process.env.NEXT_PUBLIC_VELAS_CHECKOUT_URL ||
-    "https://go.hotmart.com/W107414277M?ap=c56e&utm_source=landing_velas",
+    "https://go.hotmart.com/W107414277M?ap=c56e",
   whatsappUrl: process.env.NEXT_PUBLIC_VELAS_WHATSAPP_URL || "https://wa.me/593988342363?text=Hola%2C+quiero+recibir+informaci%C3%B3n+sobre+el+curso+de+Velas+Artesanales+como+Negocio+Creativo.+%C2%BFMe+pueden+enviar+los+detalles%2C+precio+y+todo+lo+que+incluye%3F&utm_source=chatgpt.com",
   youtubeEmbedUrl: "https://www.youtube.com/embed/FtA6FukLdhY?rel=0",
 };
