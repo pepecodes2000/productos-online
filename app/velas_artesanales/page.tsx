@@ -217,7 +217,7 @@ export default function VelasArtesanalesPage() {
   const [showMobileBuyBar, setShowMobileBuyBar] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowWhatsApp(true), 10000);
+    const timer = setTimeout(() => setShowWhatsApp(true), 60000);
     const trigger = document.getElementById("cta-principal");
     if (!trigger) return () => clearTimeout(timer);
 
@@ -254,25 +254,6 @@ export default function VelasArtesanalesPage() {
       </section>
 
       <section className="section problem-section" id="problema"><div className="shell narrow-copy"><span className="section-kicker">¿TE SUENA FAMILIAR?</span><h2>¿Te gustaría empezar a crear velas para vender, pero no sabes realmente por dónde comenzar?</h2><p>Quizás has visto tutoriales, guardado ideas o comprado algunos materiales, pero sigues teniendo dudas sobre qué cera usar, qué pabilo elegir, cuánto aroma añadir o qué necesitas para obtener un buen resultado.</p><p>Y mientras sigues buscando información por separado, pasa el tiempo, aumenta la confusión y ese proyecto de crear algo propio sigue quedando para “después”.</p><div className="transition-note">Ahí es donde tener una ruta clara puede cambiar completamente la forma de empezar.</div></div></section>
-
-      <section className="video-section" aria-labelledby="video-title">
-        <div className="shell video-shell">
-          <div className="section-intro centered compact">
-            <span className="section-kicker">CONOCE EL PROGRAMA</span>
-            <h2 id="video-title">Mira la presentación del curso</h2>
-          </div>
-          <div className="youtube-frame">
-            <iframe
-              src={config.youtubeEmbedUrl}
-              title="Velas Artesanales Actualización - presentación del curso"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-          </div>
-        </div>
-      </section>
 
       <section className="section solution-section" id="solucion"><div className="shell solution-grid"><div className="solution-copy"><span className="section-kicker">UNA RUTA CLARA</span><h2>Aprende siguiendo un proceso organizado desde los fundamentos hasta tus propios proyectos</h2><p><strong>Velas Artesanales como Negocio Creativo</strong> reúne en una misma formación lo que necesitas para comenzar desde cero: materiales, ceras, pabilos, fragancias, seguridad, técnicas y proyectos prácticos.</p><p>En lugar de intentar unir información dispersa, puedes avanzar paso a paso, volver a consultar las clases cuando lo necesites y aprender a tu propio ritmo mientras conviertes la teoría en práctica.</p><div className="transition-note">Pero aprender la técnica es solo una parte: lo importante es lo que podrás hacer con ella.</div></div><div className="solution-image panel-image"><Image src={assets.collection} alt="Colección de velas artesanales" fill sizes="(max-width: 900px) 92vw, 42vw" /></div></div></section>
 
