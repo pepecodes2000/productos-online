@@ -240,10 +240,7 @@ export default function VelasArtesanalesPage() {
         <div className="hero-glow hero-glow-one" /><div className="hero-glow hero-glow-two" />
         <div className="shell hero-inner">
           <div className="hero-copy">
-            <h1>
-              Crea <mark>velas artesanales</mark> que te sientas orgullosa
-              de mostrar… y da tus primeros pasos para convertirlas en productos.
-            </h1>
+            <h1>Empieza a crear <mark>Velas a tu Ritmo</mark> con una ruta clara y evita frustarte.</h1>
             <p className="hero-lead">Sigue una ruta organizada para descubrir qué materiales usar y avanzar desde cero con proyectos prácticos hasta crear velas que te sientas orgullosa de mostrar y presentar como productos.</p>
             <div className="hero-badges" aria-label="Resumen del curso">
               <span><PlayCircle /> +135 clases grabadas</span><span><BookOpenCheck /> 15 módulos</span><span><Clock3 /> Acceso de por vida</span>
