@@ -17,12 +17,12 @@ import {
 } from "lucide-react";
 
 const config = {
+  originalPrice: 70,
   price: 35,
   checkoutUrl:
     process.env.NEXT_PUBLIC_VELAS_CHECKOUT_URL ||
     "https://go.hotmart.com/W107414277M?ap=c56e",
   whatsappUrl: process.env.NEXT_PUBLIC_VELAS_WHATSAPP_URL || "https://wa.me/593988342363?text=Hola%2C+quiero+recibir+informaci%C3%B3n+sobre+el+curso+de+Velas+Artesanales+como+Negocio+Creativo.+%C2%BFMe+pueden+enviar+los+detalles%2C+precio+y+todo+lo+que+incluye%3F&utm_source=chatgpt.com",
-  youtubeEmbedUrl: "https://www.youtube.com/embed/FtA6FukLdhY?rel=0",
 };
 
 const assets = {
@@ -212,6 +212,32 @@ function CTA({ children, className = "" }: { children: React.ReactNode; classNam
   );
 }
 
+function OfferPrice() {
+  const savings = config.originalPrice - config.price;
+  const discount = Math.round(
+    (savings / config.originalPrice) * 100
+  );
+
+  return (
+    <div className="offer-price">
+      <span className="offer-price-badge">
+        {discount} % DE DESCUENTO
+      </span>
+
+      <div className="offer-price-values">
+        <span className="offer-price-before">
+          Antes <s>US${config.originalPrice}</s>
+        </span>
+        <strong>Ahora US${config.price}</strong>
+      </div>
+
+      <span className="offer-price-note">
+        Ahorras US${savings} · Acceso completo · Pago único
+      </span>
+    </div>
+  );
+}
+
 export default function VelasArtesanalesPage() {
   const [showWhatsApp, setShowWhatsApp] = useState(false);
   const [showMobileBuyBar, setShowMobileBuyBar] = useState(false);
@@ -240,7 +266,7 @@ export default function VelasArtesanalesPage() {
         <div className="hero-glow hero-glow-one" /><div className="hero-glow hero-glow-two" />
         <div className="shell hero-inner">
           <div className="hero-copy">
-            <h1>Empieza a crear <mark>Velas a tu Ritmo</mark> con una ruta clara y evita frustarte.</h1>
+            <h1>Tu idea de <mark>empezar con las Velas</mark> puede quedarse para después… o puede <mark>comenzar hoy</mark></h1>
             <p className="hero-lead">Sigue una ruta organizada para descubrir qué materiales usar y avanzar desde cero con proyectos prácticos hasta crear velas que te sientas orgullosa de mostrar y presentar como productos.</p>
             <div className="hero-badges" aria-label="Resumen del curso">
               <span><PlayCircle /> +135 clases grabadas</span><span><BookOpenCheck /> 15 módulos</span><span><Clock3 /> Acceso de por vida</span>
@@ -266,15 +292,15 @@ export default function VelasArtesanalesPage() {
         tus velas de forma fácil y divertida como todo un profesional  y así puedas
         emprender desde casa como yo..</p></div></div></div></section>
 
-      <section className="section first-offer-section" id="cta-inicial"><div className="shell"><div className="decision-card"><span className="section-kicker">TU PRIMER PASO</span><h2>Ya no necesitas seguir preguntándote por dónde empezar</h2><p>Si quieres aprender a crear velas siguiendo una ruta organizada y comenzar a desarrollar una habilidad que puedas transformar en tus propios productos, puedes dar el primer paso hoy.</p><div className="decision-price"><small>ACCESO COMPLETO AL PROGRAMA</small><strong>${config.price} USD</strong></div><CTA>QUIERO EMPEZAR A CREAR MIS VELAS POR ${config.price} USD</CTA><div className="trust-line"><ShieldCheck /> Acceso digital · Pago gestionado por Hotmart · Garantía informada de 7 días</div></div></div></section>
+      <section className="section first-offer-section" id="cta-inicial"><div className="shell"><div className="decision-card"><span className="section-kicker">TU PRIMER PASO</span><h2>Ya no necesitas seguir preguntándote por dónde empezar</h2><p>Si quieres aprender a crear velas siguiendo una ruta organizada y comenzar a desarrollar una habilidad que puedas transformar en tus propios productos, puedes dar el primer paso hoy.</p><div className="decision-price"><small>ACCESO COMPLETO AL PROGRAMA</small><strong>${config.price} USD</strong></div><OfferPrice /><CTA>QUIERO EMPEZAR A CREAR MIS VELAS POR ${config.price} USD</CTA><div className="trust-line"><ShieldCheck /> Acceso digital · Pago gestionado por Hotmart · Garantía informada de 7 días</div></div></div></section>
 
       <section className="bonuses-section section" id="bonos"><div className="shell"><div className="section-intro centered"><span className="section-kicker">🎁 REGALOS ESPECIALES</span><h2>Para que no tengas que descubrir todo por tu cuenta</h2><p>Aprender a crear una vela es solo una parte. También necesitas saber cuánto te cuesta, dónde conseguir materiales, cómo presentarla y qué hacer cuando aparezcan dudas.</p></div><div className="bonus-grid">{bonuses.map((bonus) => (<article className={`bonus-card ${bonus.priority ? "bonus-priority" : ""}`} key={bonus.number}><div className="bonus-image"><Image src={bonus.image} alt={bonus.title} fill sizes="(max-width: 680px) 88vw, (max-width: 1050px) 42vw, 29vw" /></div><div className="bonus-copy"><span>REGALO ESPECIAL {bonus.number}</span><h3>{bonus.title}</h3><p>{bonus.text}</p><b>{bonus.benefit}</b></div></article>))}</div><div className="value-summary"><h3>No estás recibiendo solamente un curso de velas</h3><p>Estás accediendo a una ruta completa para aprender desde cero, practicar diferentes técnicas y comenzar a entender también el lado de costos, proveedores, presentación y emprendimiento.</p><div className="value-pills"><span>+135 clases grabadas</span><span>15 módulos</span><span>Proyectos prácticos</span><span>Emprendimiento</span><span>Grupo de apoyo</span><span>Acceso de por vida</span><span>Certificado</span><span>9 regalos especiales</span></div><strong>Todo está pensado para que dejes de acumular información y empieces a convertir lo que aprendes en algo que realmente puedas crear.</strong></div></div></section>
 
-      <section className="main-cta-section section" id="cta-principal"><div className="shell"><div className="main-decision-card"><Flame className="final-flame" /><span className="section-kicker">ACCESO COMPLETO</span><h2>Puedes seguir guardando ideas y pensando “algún día empiezo”… o comenzar hoy con una ruta clara.</h2><p>No necesitas saberlo todo antes de empezar. Aprende desde cero, practica a tu ritmo y construye las bases para crear velas que puedas comenzar a presentar como tus propios productos.</p><div className="main-price"><small>ACCESO COMPLETO · PAGO ÚNICO</small><strong>${config.price} USD</strong></div><CTA>QUIERO EMPEZAR MI CAMINO CON LAS VELAS POR ${config.price} USD</CTA><div className="trust-line light-trust"><ShieldCheck /> Acceso digital · Pago gestionado por Hotmart · Acceso de por vida · Garantía informada de 7 días</div></div></div></section>
+      <section className="main-cta-section section" id="cta-principal"><div className="shell"><div className="main-decision-card"><Flame className="final-flame" /><span className="section-kicker">ACCESO COMPLETO</span><h2>Puedes seguir guardando ideas y pensando “algún día empiezo”… o comenzar hoy con una ruta clara.</h2><p>No necesitas saberlo todo antes de empezar. Aprende desde cero, practica a tu ritmo y construye las bases para crear velas que puedas comenzar a presentar como tus propios productos.</p><div className="main-price"><small>ACCESO COMPLETO · PAGO ÚNICO</small><strong>${config.price} USD</strong></div><OfferPrice /><CTA>QUIERO EMPEZAR MI CAMINO CON LAS VELAS POR ${config.price} USD</CTA><div className="trust-line light-trust"><ShieldCheck /> Acceso digital · Pago gestionado por Hotmart · Acceso de por vida · Garantía informada de 7 días</div></div></div></section>
 
       <section className="faq-section section" id="faq"><div className="shell faq-grid"><div className="faq-heading"><span className="section-kicker">PREGUNTAS FRECUENTES</span><h2>Resuelve las últimas dudas antes de comenzar</h2><p>Abre únicamente la pregunta que necesites consultar.</p></div><div className="faq-list">{faqs.map((faq) => (<details key={faq.q}><summary>{faq.q}<span>+</span></summary><p>{faq.a}</p></details>))}</div></div></section>
 
-      <section className="final-cta-section"><div className="shell final-cta-inner"><Flame className="final-flame" /><h2>Tu idea de empezar con las velas puede quedarse para después… o puede comenzar hoy.</h2><p>No necesitas tener experiencia ni saberlo todo. Solo necesitas dar el primer paso y seguir una ruta clara.</p><div className="final-price">Acceso completo: <strong>${config.price} USD</strong></div><CTA>QUIERO EMPEZAR HOY POR ${config.price} USD</CTA><div className="final-trust">Acceso digital · Pago gestionado por Hotmart · Acceso de por vida · Garantía informada de 7 días</div><small>Los resultados comerciales dependen de la práctica, aplicación, producto, mercado y circunstancias de cada persona.</small></div></section>
+      <section className="final-cta-section"><div className="shell final-cta-inner"><Flame className="final-flame" /><h2>Tu idea de empezar con las velas puede quedarse para después… o puede comenzar hoy.</h2><p>No necesitas tener experiencia ni saberlo todo. Solo necesitas dar el primer paso y seguir una ruta clara.</p><div className="final-price">Acceso completo: <strong>${config.price} USD</strong></div><OfferPrice /><CTA>QUIERO EMPEZAR HOY POR ${config.price} USD</CTA><div className="final-trust">Acceso digital · Pago gestionado por Hotmart · Acceso de por vida · Garantía informada de 7 días</div><small>Los resultados comerciales dependen de la práctica, aplicación, producto, mercado y circunstancias de cada persona.</small></div></section>
 
       <footer className="site-footer"><div className="shell footer-inner"><div className="footer-brand"><Flame /><span><strong>VELAS ARTESANALES</strong><small>NEGOCIO CREATIVO</small></span></div><p>Meta Ads (Facebook e Instagram) únicamente muestra este anuncio. La decisión de compra depende exclusivamente del valor de esta página y de si esta solución es adecuada para ti.</p></div></footer>
 
