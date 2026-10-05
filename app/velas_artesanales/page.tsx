@@ -7,12 +7,10 @@ import {
   BadgeCheck,
   BookOpenCheck,
   CircleDollarSign,
-  Clock3,
   Flame,
   GraduationCap,
   Laptop,
   PackageCheck,
-  PlayCircle,
   ShieldCheck,
 } from "lucide-react";
 
@@ -268,15 +266,41 @@ export default function VelasArtesanalesPage() {
           <div className="hero-copy">
             <h1>Tu idea de <mark>empezar con las Velas</mark> puede quedarse para después… o puede <mark>comenzar hoy</mark></h1>
             <p className="hero-lead">Sigue una ruta organizada para descubrir qué materiales usar y avanzar desde cero con proyectos prácticos hasta crear velas que te sientas orgullosa de mostrar y presentar como productos.</p>
-            <div className="hero-badges" aria-label="Resumen del curso">
-              <span><PlayCircle /> +135 clases grabadas</span><span><BookOpenCheck /> 15 módulos</span><span><Clock3 /> Acceso de por vida</span>
-            </div>
           </div>
           <div className="hero-media"><div className="hero-mockup"><Image src={assets.hero} alt="Curso Velas Artesanales como Negocio Creativo" fill priority sizes="(max-width: 900px) 94vw, 48vw" /></div><div className="hero-float hero-float-top"><BadgeCheck /><span><b>Desde cero</b> paso a paso</span></div><div className="hero-float hero-float-bottom"><GraduationCap /><span><b>15 módulos</b> ruta organizada</span></div></div>
         </div>
       </section>
 
       <section className="section problem-section" id="problema"><div className="shell narrow-copy"><span className="section-kicker">¿TE SUENA FAMILIAR?</span><h2>¿Te gustaría empezar a crear velas para vender, pero no sabes realmente por dónde comenzar?</h2><p>Quizás has visto tutoriales, guardado ideas o comprado algunos materiales, pero sigues teniendo dudas sobre qué cera usar, qué pabilo elegir, cuánto aroma añadir o qué necesitas para obtener un buen resultado.</p><p>Y mientras sigues buscando información por separado, pasa el tiempo, aumenta la confusión y ese proyecto de crear algo propio sigue quedando para “después”.</p><div className="transition-note">Ahí es donde tener una ruta clara puede cambiar completamente la forma de empezar.</div></div></section>
+
+      <section
+        className="course-stats-section"
+        aria-label="El curso en cifras"
+      >
+        <div className="shell">
+          <div className="course-stats-grid">
+            <div className="course-stat">
+              <strong>+5.000</strong>
+              <span>Estudiantes inscritos</span>
+            </div>
+
+            <div className="course-stat">
+              <strong>+135</strong>
+              <span>Clases grabadas</span>
+            </div>
+
+            <div className="course-stat">
+              <strong>15</strong>
+              <span>Módulos de aprendizaje</span>
+            </div>
+
+            <div className="course-stat">
+              <strong>9</strong>
+              <span>Regalos especiales incluidos</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="section solution-section" id="solucion"><div className="shell solution-grid"><div className="solution-copy"><span className="section-kicker">UNA RUTA CLARA</span><h2>Aprende siguiendo un proceso organizado desde los fundamentos hasta tus propios proyectos</h2><p><strong>Velas Artesanales como Negocio Creativo</strong> reúne en una misma formación lo que necesitas para comenzar desde cero: materiales, ceras, pabilos, fragancias, seguridad, técnicas y proyectos prácticos.</p><p>En lugar de intentar unir información dispersa, puedes avanzar paso a paso, volver a consultar las clases cuando lo necesites y aprender a tu propio ritmo mientras conviertes la teoría en práctica.</p><div className="transition-note">Pero aprender la técnica es solo una parte: lo importante es lo que podrás hacer con ella.</div></div><div className="solution-image panel-image"><Image src={assets.collection} alt="Colección de velas artesanales" fill sizes="(max-width: 900px) 92vw, 42vw" /></div></div></section>
 
