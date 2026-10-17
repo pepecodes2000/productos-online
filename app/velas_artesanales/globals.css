@@ -1107,3 +1107,30 @@ a:focus-visible, summary:focus-visible { outline: 3px solid rgba(255,226,91,.92)
 @media (prefers-reduced-motion: reduce) {
   .conversion-price-card .offer-cta { transition: none; }
 }
+
+/* ===== PERFORMANCE: no cambia el layout visual ===== */
+/* Evita pintar y maquetar secciones lejanas hasta que se acercan al viewport. */
+.bonuses-section,
+.testimonials-section,
+.course-stats-section,
+.conversion-offer,
+.problem-section,
+.solution-section,
+.benefits-simple,
+.curriculum-section,
+.guarantee-section,
+.faq-section,
+.final-cta-section,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+/* El blur de una barra fija es costoso en móviles y no aporta al layout. */
+@media (max-width: 720px) {
+  .mobile-buy-bar {
+    background: rgba(52,17,58,.98);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
