@@ -1,5 +1,6 @@
 import Image from "next/image";
 import VelasClientUI from "./VelasClientUI";
+import styles from "./VelasNuevasSecciones.module.css";
 import {
   ArrowRight,
   BadgeCheck,
@@ -29,7 +30,49 @@ const assets = {
   hero: "/velas-artesanales/material/mockup-principal.webp",
   collection: "/velas-artesanales/material/coleccion-velas.webp",
   instructor: "/velas-artesanales/material/instructora-andrea.webp",
+  projects: "/velas-artesanales/material/proyectos-velas.png",
 };
+
+const audiencePoints = [
+  "Quieres aprender a crear velas artesanales aunque nunca hayas hecho una.",
+  "Te gustan las manualidades y quieres convertir tu creatividad en algo que también puedas vender.",
+  "Buscas una idea para empezar desde casa sin necesitar un local o una gran estructura.",
+  "Has visto tutoriales, pero todavía te confunden las ceras, pabilos, aromas, temperaturas y materiales.",
+  "Quieres aprender paso a paso y, además, entender cómo calcular costos, presentar tus productos y comenzar a ofrecerlos.",
+];
+
+const opportunityItems = [
+  {
+    title: "Aprende a presentar y vender tus creaciones",
+    text: "Descubre ideas de empaque y presentación para que tus velas se vean más cuidadas y listas para ofrecer.",
+    image: "/velas-artesanales/material/oportunidad-empaque.png",
+  },
+  {
+    title: "Crea velas con diferentes acabados y presentaciones",
+    text: "Aprende técnicas, recipientes, moldes y combinaciones para desarrollar productos con una presentación más profesional.",
+    image: "/velas-artesanales/material/oportunidad-envases.png",
+  },
+  {
+    title: "Amplía tu catálogo con resina",
+    text: "Aprende proyectos complementarios en resina y crea más posibilidades para tu emprendimiento artesanal.",
+    image: "/velas-artesanales/material/oportunidad-resina.png",
+  },
+  {
+    title: "Aprende también jabones artesanales",
+    text: "Crea jabones de glicerina utilizando aromas, colorantes, exfoliantes y diferentes presentaciones.",
+    image: "/velas-artesanales/material/oportunidad-jabones.png",
+  },
+  {
+    title: "Aprende a calcular tus costos",
+    text: "Recibe un Excel para organizar materiales, gastos y presupuestos y tener mayor claridad al momento de definir tus precios.",
+    image: "/velas-artesanales/material/oportunidad-costos.png",
+  },
+  {
+    title: "Más de 135 clases grabadas",
+    text: "Aprende a tu ritmo y vuelve a consultar las clases cuando lo necesites.",
+    image: "/velas-artesanales/material/oportunidad-clases.png",
+  },
+];
 
 const modules = [
   {
@@ -322,8 +365,6 @@ function OfferPrice({ compact = false }: { compact?: boolean }) {
   );
 }
 
-
-
 function PromoBar() {
   const hasVerifiedDeadline = Boolean(config.promoDeadline);
 
@@ -339,22 +380,12 @@ function PromoBar() {
   );
 
   return (
-    <div
-      className="promo-bar"
-      role="region"
-      aria-label="Oferta especial"
-    >
+    <div className="promo-bar" role="region" aria-label="Oferta especial">
       <div className="promo-track">
         <div className="promo-group">{message}</div>
-        <div className="promo-group" aria-hidden="true">
-          {message}
-        </div>
-        <div className="promo-group" aria-hidden="true">
-          {message}
-        </div>
-        <div className="promo-group" aria-hidden="true">
-          {message}
-        </div>
+        <div className="promo-group" aria-hidden="true">{message}</div>
+        <div className="promo-group" aria-hidden="true">{message}</div>
+        <div className="promo-group" aria-hidden="true">{message}</div>
       </div>
     </div>
   );
@@ -382,7 +413,6 @@ function BonusCard({ bonus, featured = false }: { bonus: (typeof bonuses)[number
 }
 
 export default function VelasArtesanalesPage() {
-
   const priorityBonuses = bonuses.filter((bonus) => bonus.priority);
   const extraBonuses = bonuses.filter((bonus) => !bonus.priority);
 
@@ -390,14 +420,14 @@ export default function VelasArtesanalesPage() {
     <main className="velas-page">
       <PromoBar />
 
+      {/* 1. HERO */}
       <section className="hero" id="inicio" aria-labelledby="hero-title">
         <div className="hero-glow hero-glow-one" />
         <div className="hero-glow hero-glow-two" />
         <div className="shell hero-inner">
           <div className="hero-copy">
-
             <h1 id="hero-title">
-              Deja de posponer tu emprendimiento: <mark>Aprende a crear velas que puedas vender</mark> desde casa.
+              Deja de posponer tu emprendimiento: <mark>Aprende a crear hermosas velas que puedas vender en menos de 15 días</mark> desde casa.
             </h1>
 
             <p className="hero-lead">
@@ -428,29 +458,156 @@ export default function VelasArtesanalesPage() {
         </div>
       </section>
 
-      <section className="bonuses-section section bonuses-first" id="bonos" aria-labelledby="bonuses-title">
+      {/* 2. NUEVA SECCIÓN: PARA QUIÉN ES */}
+      <section className={`section ${styles.fitSection}`} id="para-ti" aria-labelledby="fit-title">
         <div className="shell">
-          <div className="section-intro centered bonuses-intro">
-            <h2 id="bonuses-title">9 regalos que hacen que no tengas que descubrir todo por tu cuenta</h2>
+          <div className="section-intro centered">
+            <span className="section-kicker">¿ESTE CURSO ES PARA TI?</span>
+            <h2 id="fit-title">Puede ser para ti si quieres aprender desde cero y convertir tu creatividad en una posibilidad de emprendimiento</h2>
+          </div>
+
+          <div className={styles.fitGrid}>
+            {audiencePoints.map((point) => (
+              <article className={styles.fitCard} key={point}>
+                <BadgeCheck aria-hidden="true" />
+                <p>{point}</p>
+              </article>
+            ))}
+          </div>
+
+          <p className={styles.fitClosing}>
+            <strong>No necesitas experiencia previa.</strong> Empiezas desde cero y avanzas paso a paso.
+          </p>
+        </div>
+      </section>
+
+      {/* 3. NUEVA SECCIÓN: OPORTUNIDAD + PROYECTOS */}
+      <section className={`section ${styles.opportunitySection}`} id="oportunidad" aria-labelledby="opportunity-title">
+        <div className="shell">
+          <div className="section-intro centered">
+            <span className="section-kicker">MÁS QUE APRENDER UNA TÉCNICA</span>
+            <h2 id="opportunity-title">No solo adquieres un curso, adquieres una oportunidad para aprender, crear y empezar a vender</h2>
             <p>
-              Además de aprender a crear velas, tendrás recursos para organizar costos, encontrar materiales, mejorar la presentación de tus productos, resolver dudas y ampliar tus posibilidades creativas.
+              Además de aprender a crear velas, conocerás herramientas para presentar tus productos, organizar costos y ampliar tu catálogo artesanal.
             </p>
           </div>
 
-          <div className="bonus-feature-grid">
-            {priorityBonuses.map((bonus) => <BonusCard bonus={bonus} featured key={bonus.number} />)}
+          <div className={styles.opportunityGrid}>
+            {opportunityItems.map((item) => (
+              <article className={styles.opportunityCard} key={item.title}>
+                <div className={styles.opportunityImage}>
+                  <Image src={item.image} alt={item.title} fill sizes="(max-width: 700px) 92vw, (max-width: 1050px) 46vw, 30vw" />
+                </div>
+                <div className={styles.opportunityCopy}>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              </article>
+            ))}
           </div>
 
-          <div className="bonus-divider-copy">
-            <span>Y ADEMÁS RECIBES</span>
-          </div>
+          <div className={styles.projectsBlock}>
+            <div className="section-intro centered">
+              <span className="section-kicker">PROYECTOS QUE APRENDERÁS</span>
+              <h2>Mira todo lo que podrás aprender a crear</h2>
+              <p>
+                Desde velas aromáticas y decorativas hasta diseños en gel, moldes, recipientes, velas tipo postre y muchas otras técnicas.
+              </p>
+            </div>
 
-          <div className="bonus-grid">
-            {extraBonuses.map((bonus) => <BonusCard bonus={bonus} key={bonus.number} />)}
+            <div className={styles.projectsImage}>
+              <Image
+                src={assets.projects}
+                alt="Ejemplos de proyectos de velas artesanales incluidos en el curso"
+                fill
+                sizes="(max-width: 900px) 94vw, 980px"
+              />
+            </div>
+
+            <p className={styles.projectsClosing}>Y esto es solo una parte de los proyectos incluidos en el programa.</p>
+            <div className={styles.centerCta}><CTA>QUIERO APRENDER A CREARLAS POR US$21</CTA></div>
           </div>
         </div>
       </section>
 
+      {/* 4. PROBLEMA */}
+      <section className="section problem-section" id="problema" aria-labelledby="problem-title">
+        <div className="shell narrow-copy">
+          <span className="section-kicker">¿TE SUENA FAMILIAR?</span>
+          <h2 id="problem-title">Quieres empezar a crear velas, pero la información suelta termina generando más dudas</h2>
+          <p>
+            Quizás has visto tutoriales, guardado ideas o incluso comprado algunos materiales, pero todavía dudas sobre qué cera usar, qué pabilo elegir, cuánto aroma añadir o cómo conseguir un acabado más cuidado.
+          </p>
+          <p>
+            Y si además quieres explorar la posibilidad de ofrecer tus creaciones, aparecen nuevas preguntas: cuánto cuesta producirlas, cómo presentarlas y dónde conseguir insumos.
+          </p>
+          <div className="transition-note">Una ruta ordenada reduce fricción: sabes qué aprender primero, qué practicar después y dónde volver cuando aparece una duda.</div>
+        </div>
+      </section>
+
+      {/* 5. SOLUCIÓN */}
+      <section className="section solution-section" id="solucion" aria-labelledby="solution-title">
+        <div className="shell solution-grid">
+          <div className="solution-copy">
+            <span className="section-kicker">UNA RUTA CLARA</span>
+            <h2 id="solution-title">De los fundamentos a proyectos que puedas sentirte orgullosa de mostrar</h2>
+            <p>
+              <strong>Velas Artesanales como Negocio Creativo</strong> reúne materiales, ceras, pabilos, fragancias, seguridad, técnicas y proyectos prácticos en un mismo recorrido.
+            </p>
+            <p>
+              Puedes avanzar a tu ritmo, volver a consultar las clases cuando lo necesites y acompañar la parte creativa con contenidos de costos, proveedores, empaque y presencia digital.
+            </p>
+            <CTA>QUIERO EMPEZAR MI RUTA POR US$21</CTA>
+          </div>
+          <div className="solution-image panel-image">
+            <Image src={assets.collection} alt="Colección de velas artesanales que se pueden aprender en el curso" fill sizes="(max-width: 900px) 92vw, 42vw" />
+          </div>
+        </div>
+      </section>
+
+      {/* 6. TEMARIO */}
+      <section className="curriculum-section section" id="temario" aria-labelledby="curriculum-title">
+        <div className="shell curriculum-grid">
+          <aside className="curriculum-heading">
+            <span className="section-kicker">QUÉ INCLUYE</span>
+            <h2 id="curriculum-title">Una formación que avanza contigo desde cero</h2>
+            <p>Revisa el temario por módulos y abre únicamente lo que quieras consultar.</p>
+            <div className="curriculum-mini-card"><BookOpenCheck /><div><strong>15 módulos organizados</strong><span>Fundamentos, práctica, complementos y emprendimiento.</span></div></div>
+          </aside>
+
+          <div className="module-list">
+            {modules.map((module, index) => (
+              <details key={module.number} open={index === 0}>
+                <summary>
+                  <span className="module-number">{module.number}</span>
+                  <span className="module-title">{module.title}</span>
+                  <span className="module-plus">+</span>
+                </summary>
+                <ul>{module.topics.map((topic) => <li key={topic}>{topic}</li>)}</ul>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. BENEFICIOS */}
+      <section className="section benefits-simple" id="beneficios" aria-labelledby="benefits-title">
+        <div className="shell">
+          <div className="section-intro centered">
+            <span className="section-kicker">MÁS QUE HACER VELAS</span>
+            <h2 id="benefits-title">Aprende la técnica y entiende mejor cómo convertirla en un producto</h2>
+            <p>El valor no está solo en crear una vela: está en comprender el proceso, reducir errores y ganar claridad para presentar lo que haces.</p>
+          </div>
+          <div className="benefit-story-grid">
+            <article><Flame /><h3>Técnica y variedad</h3><p>Trabaja distintos estilos mientras comprendes ceras, pabilos, fragancias, moldes y procesos.</p></article>
+            <article><CircleDollarSign /><h3>Costos con más claridad</h3><p>Conoce bases para organizar costos y presupuestos cuando quieras pensar en precios para tus productos.</p></article>
+            <article><PackageCheck /><h3>Presentación cuidada</h3><p>Aprende ideas de empaque y presentación para dar una apariencia más terminada a tus creaciones.</p></article>
+            <article><Laptop /><h3>Herramientas para mostrarte</h3><p>El temario incluye elementos básicos de marca y uso de Facebook, TikTok y WhatsApp Business.</p></article>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. TESTIMONIOS + INSTRUCTORA */}
       <section className="testimonials-section section" id="testimonios" aria-labelledby="testimonials-title">
         <div className="shell">
           <div className="section-intro centered light">
@@ -495,17 +652,11 @@ export default function VelasArtesanalesPage() {
         </div>
       </section>
 
-      <section
-        className="section conversion-offer"
-        id="oferta"
-        aria-labelledby="offer-title"
-      >
+      {/* 9. OFERTA */}
+      <section className="section conversion-offer" id="oferta" aria-labelledby="offer-title">
         <div className="shell conversion-offer-grid">
-          {/* Información y beneficios */}
           <div className="offer-copy-block">
-            <span className="section-kicker offer-kicker">
-              TU OPORTUNIDAD PARA EMPEZAR DESDE CASA
-            </span>
+            <span className="section-kicker offer-kicker">TU OPORTUNIDAD PARA EMPEZAR DESDE CASA</span>
 
             <h2 id="offer-title">
               No necesitas tener un negocio para empezar. <mark>Puedes empezar aprendiendo una habilidad que puedas vender.</mark>
@@ -516,9 +667,7 @@ export default function VelasArtesanalesPage() {
             </p>
 
             <div className="offer-benefit-heading">
-              <span className="offer-benefit-icon">
-                <CircleDollarSign aria-hidden="true" />
-              </span>
+              <span className="offer-benefit-icon"><CircleDollarSign aria-hidden="true" /></span>
               <div>
                 <strong>Más que un curso para hacer velas</strong>
                 <span>Una ruta para aprender, crear productos atractivos y explorar tu propio emprendimiento artesanal.</span>
@@ -538,38 +687,27 @@ export default function VelasArtesanalesPage() {
 
             <div className="offer-reassurance">
               <ShieldCheck aria-hidden="true" />
-              <p>
-                <strong>Empieza desde cero.</strong>
-                Accede a las clases y avanza a tu propio ritmo.
-              </p>
+              <p><strong>Empieza desde cero.</strong> Accede a las clases y avanza a tu propio ritmo.</p>
             </div>
           </div>
 
-          {/* Tarjeta de precio */}
           <div className="conversion-price-card">
             <div className="price-card-top">
               <span className="price-card-label price-card-label-urgent">
                 <Flame aria-hidden="true" />
                 {config.promoDeadline ? "SOLO POR HOY · 70% OFF" : "OFERTA ACTIVA · 70% OFF"}
               </span>
-              <span className="price-card-check">
-                <BadgeCheck aria-hidden="true" />
-                Acceso completo
-              </span>
+              <span className="price-card-check"><BadgeCheck aria-hidden="true" /> Acceso completo</span>
             </div>
 
-            <p className="price-card-before">
-              Precio regular <s>US$70</s>
-            </p>
+            <p className="price-card-before">Precio regular <s>US$70</s></p>
 
             <div className="big-price" aria-label="Precio especial: 21 dólares">
               <span>US$</span>
               <strong>21</strong>
             </div>
 
-            <div className="price-saving">
-              HOY AHORRAS US$49
-            </div>
+            <div className="price-saving">HOY AHORRAS US$49</div>
 
             <p className="price-card-copy">
               Empieza con acceso al curso completo, más de 135 clases, 15 módulos y los 9 regalos incluidos. Un solo pago y acceso de por vida.
@@ -584,15 +722,9 @@ export default function VelasArtesanalesPage() {
               </span>
             </div>
 
-            <CTA className="offer-cta">
-              SÍ, QUIERO APROVECHAR LOS US$21
-            </CTA>
+            <CTA className="offer-cta">SÍ, QUIERO APROVECHAR LOS US$21</CTA>
 
-            <div className="payment-note">
-              <ShieldCheck aria-hidden="true" />
-              <span>Pago seguro gestionado por Hotmart</span>
-            </div>
-
+            <div className="payment-note"><ShieldCheck aria-hidden="true" /><span>Pago seguro gestionado por Hotmart</span></div>
             <div className="price-card-divider" />
 
             <div className="price-card-details">
@@ -611,79 +743,35 @@ export default function VelasArtesanalesPage() {
         </div>
       </section>
 
-      <section className="section problem-section" id="problema" aria-labelledby="problem-title">
-        <div className="shell narrow-copy">
-          <span className="section-kicker">¿TE SUENA FAMILIAR?</span>
-          <h2 id="problem-title">Quieres empezar a crear velas, pero la información suelta termina generando más dudas</h2>
-          <p>
-            Quizás has visto tutoriales, guardado ideas o incluso comprado algunos materiales, pero todavía dudas sobre qué cera usar, qué pabilo elegir, cuánto aroma añadir o cómo conseguir un acabado más cuidado.
-          </p>
-          <p>
-            Y si además quieres explorar la posibilidad de ofrecer tus creaciones, aparecen nuevas preguntas: cuánto cuesta producirlas, cómo presentarlas y dónde conseguir insumos.
-          </p>
-          <div className="transition-note">Una ruta ordenada reduce fricción: sabes qué aprender primero, qué practicar después y dónde volver cuando aparece una duda.</div>
-        </div>
-      </section>
-
-      <section className="section solution-section" id="solucion" aria-labelledby="solution-title">
-        <div className="shell solution-grid">
-          <div className="solution-copy">
-            <span className="section-kicker">UNA RUTA CLARA</span>
-            <h2 id="solution-title">De los fundamentos a proyectos que puedas sentirte orgullosa de mostrar</h2>
-            <p>
-              <strong>Velas Artesanales como Negocio Creativo</strong> reúne materiales, ceras, pabilos, fragancias, seguridad, técnicas y proyectos prácticos en un mismo recorrido.
-            </p>
-            <p>
-              Puedes avanzar a tu ritmo, volver a consultar las clases cuando lo necesites y acompañar la parte creativa con contenidos de costos, proveedores, empaque y presencia digital.
-            </p>
-            <CTA>QUIERO EMPEZAR MI RUTA POR US$21</CTA>
-          </div>
-          <div className="solution-image panel-image">
-            <Image src={assets.collection} alt="Colección de velas artesanales que se pueden aprender en el curso" fill sizes="(max-width: 900px) 92vw, 42vw" />
-          </div>
-        </div>
-      </section>
-
-      <section className="section benefits-simple" id="beneficios" aria-labelledby="benefits-title">
+      {/* 10. BONOS */}
+      <section className="bonuses-section section" id="bonos" aria-labelledby="bonuses-title">
         <div className="shell">
-          <div className="section-intro centered">
-            <span className="section-kicker">MÁS QUE HACER VELAS</span>
-            <h2 id="benefits-title">Aprende la técnica y entiende mejor cómo convertirla en un producto</h2>
-            <p>El valor no está solo en crear una vela: está en comprender el proceso, reducir errores y ganar claridad para presentar lo que haces.</p>
+          <div className="section-intro centered bonuses-intro">
+            <span className="section-kicker">Y ADEMÁS RECIBES</span>
+            <h2 id="bonuses-title">9 regalos que hacen que no tengas que descubrir todo por tu cuenta</h2>
+            <p>
+              Además de aprender a crear velas, tendrás recursos para organizar costos, encontrar materiales, mejorar la presentación de tus productos, resolver dudas y ampliar tus posibilidades creativas.
+            </p>
           </div>
-          <div className="benefit-story-grid">
-            <article><Flame /><h3>Técnica y variedad</h3><p>Trabaja distintos estilos mientras comprendes ceras, pabilos, fragancias, moldes y procesos.</p></article>
-            <article><CircleDollarSign /><h3>Costos con más claridad</h3><p>Conoce bases para organizar costos y presupuestos cuando quieras pensar en precios para tus productos.</p></article>
-            <article><PackageCheck /><h3>Presentación cuidada</h3><p>Aprende ideas de empaque y presentación para dar una apariencia más terminada a tus creaciones.</p></article>
-            <article><Laptop /><h3>Herramientas para mostrarte</h3><p>El temario incluye elementos básicos de marca y uso de Facebook, TikTok y WhatsApp Business.</p></article>
+
+          <div className="bonus-feature-grid">
+            {priorityBonuses.map((bonus) => <BonusCard bonus={bonus} featured key={bonus.number} />)}
           </div>
-        </div>
-      </section>
 
-      <section className="curriculum-section section" id="temario" aria-labelledby="curriculum-title">
-        <div className="shell curriculum-grid">
-          <aside className="curriculum-heading">
-            <span className="section-kicker">QUÉ INCLUYE</span>
-            <h2 id="curriculum-title">Una formación que avanza contigo desde cero</h2>
-            <p>Revisa el temario por módulos y abre únicamente lo que quieras consultar.</p>
-            <div className="curriculum-mini-card"><BookOpenCheck /><div><strong>15 módulos organizados</strong><span>Fundamentos, práctica, complementos y emprendimiento.</span></div></div>
-          </aside>
+          <div className="bonus-divider-copy"><span>Y ADEMÁS RECIBES</span></div>
 
-          <div className="module-list">
-            {modules.map((module, index) => (
-              <details key={module.number} open={index === 0}>
-                <summary>
-                  <span className="module-number">{module.number}</span>
-                  <span className="module-title">{module.title}</span>
-                  <span className="module-plus">+</span>
-                </summary>
-                <ul>{module.topics.map((topic) => <li key={topic}>{topic}</li>)}</ul>
-              </details>
-            ))}
+          <div className="bonus-grid">
+            {extraBonuses.map((bonus) => <BonusCard bonus={bonus} key={bonus.number} />)}
+          </div>
+
+          <div className={styles.bonusOffer}>
+            <OfferPrice compact />
+            <CTA>QUIERO EL CURSO + LOS 9 REGALOS POR US$21</CTA>
           </div>
         </div>
       </section>
 
+      {/* 11. GARANTÍA */}
       <section className="guarantee-section" aria-labelledby="guarantee-title">
         <div className="shell guarantee-card">
           <div className="guarantee-icon"><ShieldCheck /></div>
@@ -695,6 +783,7 @@ export default function VelasArtesanalesPage() {
         </div>
       </section>
 
+      {/* 12. FAQ */}
       <section className="faq-section section" id="faq" aria-labelledby="faq-title">
         <div className="shell faq-grid">
           <div className="faq-heading">
@@ -713,6 +802,7 @@ export default function VelasArtesanalesPage() {
         </div>
       </section>
 
+      {/* 13. CIERRE */}
       <section className="final-cta-section" aria-labelledby="final-title">
         <div className="shell final-cta-inner">
           <Flame className="final-flame" />
@@ -733,10 +823,7 @@ export default function VelasArtesanalesPage() {
         </div>
       </footer>
 
-      <VelasClientUI
-        checkoutUrl={config.checkoutUrl}
-        whatsappUrl={config.whatsappUrl}
-      />
+      <VelasClientUI checkoutUrl={config.checkoutUrl} whatsappUrl={config.whatsappUrl} />
     </main>
   );
 }
