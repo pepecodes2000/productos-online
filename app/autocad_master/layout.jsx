@@ -5,7 +5,7 @@ import "./globals.css";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
-const META_PIXEL_ID = "1033830876354785";
+const META_PIXEL_ID = "987224667726544";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
