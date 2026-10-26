@@ -23,7 +23,16 @@ const IMAGES = {
 function Arrow() { return <span aria-hidden="true">↗</span>; }
 function Invitation({ compact = false, label = 'Quiero acceder gratis', source = 'contenido' }) {
   return <div className={`me-invitation${compact ? ' me-invitation--compact' : ''}`}>
-    <a className="me-cta" href={EVENT.whatsapp} data-cta-location={source}><span>{label}</span><Arrow /></a>
+    <a
+      className="me-cta"
+      href={EVENT.whatsapp}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-cta-location={source}
+    >
+      <span>{label}</span>
+      <Arrow />
+    </a>
     {!compact && <p className="me-cta-note">Acceso gratuito · Recibe el enlace y los recordatorios por WhatsApp</p>}
   </div>;
 }
@@ -85,22 +94,22 @@ export default function Home() {
       <section className="me-section me-wrap me-split" aria-labelledby="dudas">
         <div data-reveal><p className="me-eyebrow">SI ALGUNA VEZ HAS DUDADO EN CABINA</p><h2 id="dudas">La piel no siempre sigue<br /><em>el protocolo que aprendiste.</em></h2><p className="me-section-intro">Conoces activos. Has estudiado técnicas. Pero una piel real puede plantearte preguntas que una receta no responde.</p><Photo src={IMAGES.dificultad} alt="Observación de la piel antes de seleccionar un abordaje estético" className="me-inline-photo" /></div>
         <div className="me-pain-list" data-reveal>
-          {['«Tiene acné y manchas, pero también está sensibilizada. ¿Por dónde empiezo?»', '«En otras pieles funcionó. ¿Qué está cambiando en este caso?»', '«¿Necesito otra herramienta o entender mejor lo que estoy viendo?»', '«¿Cómo explico por qué elijo un paso antes que otro?»'].map((t, i) => <div className="me-pain" key={t}><span>0{i+1}</span><p>{t}</p></div>)}
+          {['«Tiene acné y manchas, pero también está sensibilizada. ¿Por dónde empiezo?»', '«En otras pieles funcionó. ¿Qué está cambiando en este caso?»', '«¿Necesito otra herramienta o entender mejor lo que estoy viendo?»', '«¿Cómo explico por qué elijo un paso antes que otro?»'].map((t, i) => <div className="me-pain" key={t}><span>0{i + 1}</span><p>{t}</p></div>)}
           <div className="me-insight"><p>Tal vez tu siguiente avance no empiece con otro producto.</p><strong>Puede empezar con una mejor pregunta.</strong></div>
         </div>
       </section>
 
       <section className="me-learning me-section" id="aprendizajes" aria-labelledby="beneficios"><div className="me-wrap">
         <div className="me-section-heading" data-reveal><p className="me-eyebrow">LO QUE VAS A EXPLORAR</p><h2 id="beneficios">Más claridad para pensar.<br /><em>Más criterio para decidir.</em></h2><p>Una primera aproximación a la forma de analizar la piel de Coach Estético.</p></div>
-        <div className="me-benefit-grid">{benefits.map(([n,t,d]) => <article className="me-benefit" key={n} data-reveal><span className="me-number">{n}</span><h3>{t}</h3><p>{d}</p><span className="me-card-arrow" aria-hidden="true">↗</span></article>)}</div>
+        <div className="me-benefit-grid">{benefits.map(([n, t, d]) => <article className="me-benefit" key={n} data-reveal><span className="me-number">{n}</span><h3>{t}</h3><p>{d}</p><span className="me-card-arrow" aria-hidden="true">↗</span></article>)}</div>
         <div className="me-learning-note"><span aria-hidden="true">✳</span><p>La pregunta que conecta ambos encuentros:<br /><strong>«¿Qué necesito comprender de esta piel antes de decidir qué hacer?»</strong></p></div>
       </div></section>
 
       <section className="me-section me-wrap" id="agenda" aria-labelledby="clases">
         <div className="me-section-heading me-heading-row" data-reveal><div><p className="me-eyebrow">TU AGENDA DE APRENDIZAJE</p><h2 id="clases">Dos clases.<br /><em>Una nueva perspectiva.</em></h2></div><p>Reserva un espacio para detenerte, revisar tus preguntas y ampliar tu mirada profesional.</p></div>
         <div className="me-agenda-grid">
-          <article className="me-session" data-reveal><div className="me-session-top"><span>MASTERCLASS 01</span><span className="me-tag">ACNÉ</span></div><div className="me-session-date"><strong>{EVENT.firstDay}</strong><span>NOVIEMBRE<small>2026 · ONLINE · GRATIS</small></span></div><h3>¿Por qué este acné no mejora aunque estés haciendo todo “bien”?</h3><p>Explora qué puede estar sosteniendo el cuadro y qué variables conviene considerar antes de cambiar el abordaje.</p><ul className="me-check-list"><li>Por qué dos pieles con acné pueden necesitar decisiones distintas.</li><li>Qué preguntas hacerte cuando la evolución no es la esperada.</li><li>La importancia de observar el contexto antes de repetir una secuencia.</li></ul><div className="me-session-footer"><time dateTime={EVENT.firstISO}>9 de noviembre</time><a href={EVENT.whatsapp}>Quiero asistir <Arrow /></a></div></article>
-          <article className="me-session" data-reveal><div className="me-session-top"><span>MASTERCLASS 02</span><span className="me-tag">MANCHAS</span></div><div className="me-session-date"><strong>{EVENT.secondDay}</strong><span>NOVIEMBRE<small>2026 · ONLINE · GRATIS</small></span></div><h3>La mancha no es el diagnóstico: qué entender antes de despigmentar.</h3><p>Amplía tu mirada sobre la pigmentación y los factores que pueden cambiar las prioridades de un caso.</p><ul className="me-check-list"><li>Por qué una apariencia similar no implica una misma estrategia.</li><li>El papel de la inflamación y la sensibilidad en el análisis.</li><li>Qué comprender antes de decidir por dónde empezar.</li></ul><div className="me-session-footer"><time dateTime={EVENT.secondISO}>16 de noviembre</time><a href={EVENT.whatsapp}>Quiero asistir <Arrow /></a></div></article>
+          <article className="me-session" data-reveal><div className="me-session-top"><span>MASTERCLASS 01</span><span className="me-tag">ACNÉ</span></div><div className="me-session-date"><strong>{EVENT.firstDay}</strong><span>NOVIEMBRE<small>2026 · ONLINE · GRATIS</small></span></div><h3>¿Por qué este acné no mejora aunque estés haciendo todo “bien”?</h3><p>Explora qué puede estar sosteniendo el cuadro y qué variables conviene considerar antes de cambiar el abordaje.</p><ul className="me-check-list"><li>Por qué dos pieles con acné pueden necesitar decisiones distintas.</li><li>Qué preguntas hacerte cuando la evolución no es la esperada.</li><li>La importancia de observar el contexto antes de repetir una secuencia.</li></ul><div className="me-session-footer"><time dateTime={EVENT.firstISO}>9 de noviembre</time><a href={EVENT.whatsapp} target="_blank" rel="noopener noreferrer">Quiero asistir <Arrow /></a></div></article>
+          <article className="me-session" data-reveal><div className="me-session-top"><span>MASTERCLASS 02</span><span className="me-tag">MANCHAS</span></div><div className="me-session-date"><strong>{EVENT.secondDay}</strong><span>NOVIEMBRE<small>2026 · ONLINE · GRATIS</small></span></div><h3>La mancha no es el diagnóstico: qué entender antes de despigmentar.</h3><p>Amplía tu mirada sobre la pigmentación y los factores que pueden cambiar las prioridades de un caso.</p><ul className="me-check-list"><li>Por qué una apariencia similar no implica una misma estrategia.</li><li>El papel de la inflamación y la sensibilidad en el análisis.</li><li>Qué comprender antes de decidir por dónde empezar.</li></ul><div className="me-session-footer"><time dateTime={EVENT.secondISO}>16 de noviembre</time><a href={EVENT.whatsapp} target="_blank" rel="noopener noreferrer">Quiero asistir <Arrow /></a></div></article>
         </div>
         <div className="me-center"><Invitation source="agenda" label="Quiero acceder a las dos masterclasses" /><p className="me-small">Consulta el horario actualizado de cada encuentro en WhatsApp.</p></div>
       </section>
@@ -116,7 +125,7 @@ export default function Home() {
 
       <section className="me-section me-wrap" aria-labelledby="acceso"><div className="me-section-heading me-center" data-reveal><p className="me-eyebrow">TU SIGUIENTE PASO ES SENCILLO</p><h2 id="acceso">Únete hoy.<br /><em>Llega con tus preguntas.</em></h2></div><ol className="me-access-steps"><li><span>01</span><h3>Haz clic en el botón</h3><p>Se abrirá la invitación de WhatsApp.</p></li><li><span>02</span><h3>Completa tu ingreso</h3><p>Únete al grupo para recibir las comunicaciones del evento.</p></li><li><span>03</span><h3>Guarda las fechas</h3><p>Consulta allí el enlace y el horario antes de cada clase.</p></li></ol><div className="me-center"><Invitation source="pasos" label="Recibir mi acceso por WhatsApp" /></div></section>
 
-      <section className="me-faq-section me-section" id="preguntas"><div className="me-wrap me-faq-layout"><div data-reveal><p className="me-eyebrow">ANTES DE UNIRTE</p><h2>Todo claro.<br /><em>Desde el inicio.</em></h2><p className="me-section-intro">Resuelve las dudas más frecuentes sobre el acceso y el enfoque de las clases.</p></div><div className="me-faq-list">{questions.map(([q,a]) => <details key={q}><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div></div></section>
+      <section className="me-faq-section me-section" id="preguntas"><div className="me-wrap me-faq-layout"><div data-reveal><p className="me-eyebrow">ANTES DE UNIRTE</p><h2>Todo claro.<br /><em>Desde el inicio.</em></h2><p className="me-section-intro">Resuelve las dudas más frecuentes sobre el acceso y el enfoque de las clases.</p></div><div className="me-faq-list">{questions.map(([q, a]) => <details key={q}><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div></div></section>
 
       <section className="me-closing me-wrap" aria-labelledby="cierre"><div className="me-closing-inner" data-reveal><Photo src={IMAGES.cierre} alt="Espacio de cuidado facial profesional" className="me-closing-photo" /><div className="me-closing-copy"><p className="me-eyebrow">2 MASTERCLASSES GRATUITAS · {EVENT.dates}</p><h2 id="cierre">La próxima piel<br />traerá nuevas preguntas.<br /><em>Amplía tu forma de responder.</em></h2><p>Empieza por comprender qué observar y qué priorizar.<br />Te esperamos en «Cada piel, una decisión».</p><Invitation source="cierre" label="Sí, quiero unirme gratis" /></div></div></section>
     </main>
