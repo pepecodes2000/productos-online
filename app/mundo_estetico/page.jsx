@@ -10,7 +10,7 @@ const EVENT = {
   dates: '9 y 16 de noviembre de 2026',
   firstDay: '09', secondDay: '16',
   firstISO: '2026-11-09', secondISO: '2026-11-16',
-  whatsapp: 'https://chat.whatsapp.com/CxYf6g0RQVtI0DS7vR0WLN',
+  whatsapp: 'https://chat.whatsapp.com/CxYf6g0RQVtI0DS7vR0WLN?s=sw&p=a&iam=2',
 };
 const IMAGES = {
   principal: '/mundo_estetico/portada.webp',
