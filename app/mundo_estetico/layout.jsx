@@ -1,3 +1,4 @@
+
 import MetaTracking from '../../components/meta/MetaTracking'
 
 import { Inter, Montserrat } from 'next/font/google'
@@ -43,17 +44,21 @@ export const viewport = {
 
 const CLARITY_ID = 'z996dm4lhw'
 
-export default function RootLayout ({ children }) {
+export default function RootLayout({ children }) {
+  const metaTrackingEnabled =
+    process.env.META_TRACKING_ENABLED === 'true'
+
   return (
     <html lang='es'>
       <body className={`${inter.variable} ${montserrat.variable}`}>
 
         {children}
-        <MetaTracking enabled={process.env.META_TRACKING_ENABLED === 'true'} />
 
-        {/* =========================
-                    MICROSOFT CLARITY
-                ========================== */}
+        {/* META PIXEL + CONVERSION API + CONSENTIMIENTO */}
+        {metaTrackingEnabled && (
+          <MetaTracking enabled={true} />
+        )}
+
         <Script
           id='microsoft-clarity'
           strategy='lazyOnload'
