@@ -1,4 +1,3 @@
-
 import MetaTracking from '../../components/meta/MetaTracking'
 
 import { Inter, Montserrat } from 'next/font/google'
@@ -18,6 +17,9 @@ const montserrat = Montserrat({
 })
 
 export const metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://productos-online.vercel.app'
+  ),
   title: 'Cada piel, una decisión | Masterclasses gratuitas de acné y manchas',
   description:
     'Únete a las masterclasses gratuitas del 9 y 16 de noviembre de 2026 con Dianela Draganov. Análisis y prioridades ante casos de acné y manchas para profesionales de la estética.',
@@ -44,7 +46,7 @@ export const viewport = {
 
 const CLARITY_ID = 'z996dm4lhw'
 
-export default function RootLayout({ children }) {
+export default function RootLayout ({ children }) {
   const metaTrackingEnabled =
     process.env.META_TRACKING_ENABLED === 'true'
 
@@ -56,9 +58,34 @@ export default function RootLayout({ children }) {
 
         {/* META PIXEL + CONVERSION API + CONSENTIMIENTO */}
         {metaTrackingEnabled && (
-          <MetaTracking enabled={true} />
+          <MetaTracking enabled />
         )}
 
+        {/* META PIXEL */}
+        <Script
+          id='meta-pixel'
+          strategy='afterInteractive'
+          dangerouslySetInnerHTML={{
+            __html: `
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];
+      t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}
+      (window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '${process.env.META_AUTOCAD_PIXEL_ID}');
+      fbq('track', 'PageView');
+    `
+          }}
+        />
+
+        {/* MICROSOFT CLARITY */}
         <Script
           id='microsoft-clarity'
           strategy='lazyOnload'
