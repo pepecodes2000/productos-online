@@ -79,7 +79,7 @@ export default function RootLayout ({ children }) {
       (window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
 
-      fbq('init', '${process.env.META_AUTOCAD_PIXEL_ID}');
+      fbq('init', '${process.env.META_MUNDO_PIXEL_ID}');
       fbq('track', 'PageView');
     `
           }}
