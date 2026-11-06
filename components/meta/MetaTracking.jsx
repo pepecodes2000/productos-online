@@ -30,6 +30,7 @@ function initPixel (pixel) {
     // Disable automatic button/microdata events. All events use trackSingle.
     window.fbq('set', 'autoConfig', false, pixel)
     window.fbq('init', pixel)
+    window.fbq('track', 'PageView')
     window.__metaPixels.add(pixel)
   }
   window.fbq('consent', 'grant')
@@ -124,16 +125,51 @@ export default function MetaTracking ({ enabled = false }) {
       window.removeEventListener('storage', onStorage); document.removeEventListener('click', onClick)
     }
   }, [enabled, pathname])
-  if (!enabled) return null
+  if (!enabled || (!show && choice !== true)) return null
   const decide = granted => window.dispatchEvent(new CustomEvent('meta:consent', { detail: granted }))
   return (
-    <aside aria-label='Preferencias de medición' style={{ position: 'fixed', bottom: 12, left: 12, zIndex: 2147483000, maxWidth: 350, padding: 12, background: '#fff', color: '#171717', border: '1px solid #bbb', borderRadius: 8, font: '14px/1.5 system-ui' }}>
+    <aside
+      aria-label='Preferencias de medición'
+      style={{
+        position: 'fixed',
+        bottom: 12,
+        left: 12,
+        zIndex: 2147483000,
+        maxWidth: 350,
+        padding: 12,
+        background: '#fff',
+        color: '#171717',
+        border: '1px solid #bbb',
+        borderRadius: 8,
+        font: '14px/1.5 system-ui'
+      }}
+    >
       {show
-        ? <><p style={{ margin: '0 0 8px' }}>¿Permites compartir visitas y clics con Meta para medir publicidad? Puedes rechazar o retirar tu permiso.</p>
-          <button type='button' onClick={() => decide(true)} style={{ marginRight: 12 }}>Aceptar</button>
-          <button type='button' onClick={() => decide(false)}>Rechazar</button>
-        </>
-        : <button type='button' onClick={() => choice === true ? decide(false) : setShow(true)}>{choice === true ? 'Retirar permiso de Meta' : 'Privacidad de Meta'}</button>}
+        ? (
+          <>
+            <p style={{ margin: '0 0 8px' }}>
+              ¿Permites compartir visitas y clics con Meta para medir publicidad?
+              Puedes rechazar o retirar tu permiso.
+            </p>
+
+            <button type='button' onClick={() => decide(true)}>
+              Aceptar
+            </button>
+
+            <button
+              type='button'
+              onClick={() => decide(false)}
+              style={{ marginLeft: 12 }}
+            >
+              Rechazar
+            </button>
+          </>
+          )
+        : (
+          <button type='button' onClick={() => decide(false)}>
+            Retirar permiso de Meta
+          </button>
+          )}
     </aside>
   )
 }

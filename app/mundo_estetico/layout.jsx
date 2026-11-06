@@ -2,7 +2,7 @@ import MetaTracking from '../../components/meta/MetaTracking'
 
 import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
-import Script from "next/script"
+import Script from 'next/script'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -41,7 +41,7 @@ export const viewport = {
   themeColor: '#101110'
 }
 
-const CLARITY_ID = "z996dm4lhw";
+const CLARITY_ID = 'z996dm4lhw'
 
 export default function RootLayout ({ children }) {
   return (
