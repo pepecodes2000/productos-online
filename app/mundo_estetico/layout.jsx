@@ -41,7 +41,7 @@ export const viewport = {
   themeColor: '#101110'
 }
 
-const CLARITY_ID = "yq4ydwow9v";
+const CLARITY_ID = "z996dm4lhw";
 
 export default function RootLayout ({ children }) {
   return (
