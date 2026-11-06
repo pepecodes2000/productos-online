@@ -105,7 +105,7 @@ function PurchaseButton({ label }: { label: string }) {
       className="purchase-button h-auto rounded-full px-7 py-4 text-base font-bold"
     >
       <a
-        href={checkoutUrl}
+        data-meta-checkout="true" href={checkoutUrl}
         target={external ? "_blank" : undefined}
         rel={external ? "noreferrer" : undefined}
       >

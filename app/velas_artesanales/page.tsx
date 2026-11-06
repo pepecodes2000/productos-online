@@ -408,7 +408,7 @@ function CTA({ children, className = "" }: { children: React.ReactNode; classNam
   return (
     <a
       className={`primary-cta ${className}`.trim()}
-      href={config.checkoutUrl}
+      data-meta-checkout="true" href={config.checkoutUrl}
       target="_blank"
       rel="noreferrer"
     >

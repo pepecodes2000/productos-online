@@ -62,7 +62,7 @@ export default function VelasClientUI({ checkoutUrl, whatsappUrl }: Props) {
             <small>70% DE DESCUENTO</small>
             <strong>US$21</strong>
           </div>
-          <a href={checkoutUrl} target="_blank" rel="noreferrer">
+          <a data-meta-checkout="true" href={checkoutUrl} target="_blank" rel="noreferrer">
             APROVECHAR AHORA
           </a>
         </div>

@@ -31,9 +31,7 @@ function trackClick(placement) {
   });
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event: "whatsapp_click", placement, ...campaign });
-  if (typeof window.fbq === "function") {
-    window.fbq("trackCustom", "WhatsAppClick", { placement, ...campaign });
-  }
+  // Meta Contact is handled once by the consent-aware shared provider.
   // No se añaden UTM al enlace de invitación: se conservan en el evento.
 }
 
